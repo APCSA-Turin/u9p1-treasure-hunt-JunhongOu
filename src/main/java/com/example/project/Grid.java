@@ -73,7 +73,7 @@ public class Grid{
 } else if(cell instanceof Trophy) {
                     System.out.print("🏆");
                 } else if(cell instanceof Treasure) {
-                    System.out.print("🏆");
+                    System.out.print("💎");
                 } else {
                     System.out.print("⬜");
                 }
