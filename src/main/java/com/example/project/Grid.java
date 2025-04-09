@@ -52,13 +52,17 @@ public class Grid {
             for (Sprite cell : row) { // prints out each sprite for the Treasure Hunt game
                 if (cell instanceof Player) { // if cell is an instance of the Player class
                     System.out.print("😎");
-                } else if (cell instanceof Enemy) { // if cell is an instance of the Enemy class
+                } 
+                else if (cell instanceof Enemy) { // if cell is an instance of the Enemy class
                     System.out.print("👿");
-                } else if (cell instanceof Trophy) { // if cell is an instance of the Trophy class
+                } 
+                else if (cell instanceof Trophy) { // if cell is an instance of the Trophy class
                     System.out.print("🏆");
-                } else if (cell instanceof Treasure) { // if cell is an instance of the Treasure class
+                } 
+                else if (cell instanceof Treasure) { // if cell is an instance of the Treasure class
                     System.out.print("💰");
-                } else {
+                } 
+                else {
                     System.out.print("⬜"); // prints out a dot when it isn't the above instances
                 }
             }

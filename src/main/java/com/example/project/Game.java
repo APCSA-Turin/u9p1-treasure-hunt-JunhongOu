@@ -74,9 +74,9 @@ public class Game {
                 }
             }
             
+            grid.placeSprite(player, key); // places sprite on the grid in respective to the direction
             player.interact(size, key, treasures.length, direction); // For the game to function properly with each object interactions
             player.move(key); //For the player to move within the grid
-            grid.placeSprite(player, key); // places sprite on the grid in respective to the direction
             
             if (player.getWin()) { // After winning, prints out a win message
                 grid.win();
