@@ -4,7 +4,7 @@ package com.example.project;
 public class Treasure extends Sprite { //child of Sprite
     private String treasure;
     
-    public Treasure(int x, int y) {
+    public Treasure(int x, int y) { //initializing the treasure constructor
         super(x, y);
         treasure = "💰";
     }

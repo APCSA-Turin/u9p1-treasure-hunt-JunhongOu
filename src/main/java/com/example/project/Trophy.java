@@ -4,7 +4,7 @@ package com.example.project;
 public class Trophy extends Treasure { //child of treasure
     private String trophy;
     
-    public Trophy(int x, int y){
+    public Trophy(int x, int y){ //initializing the trophy constructor
         super(x, y);
         trophy = "🏆";
     }

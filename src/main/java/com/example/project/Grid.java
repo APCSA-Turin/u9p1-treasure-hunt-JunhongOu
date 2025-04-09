@@ -11,7 +11,7 @@ public class Grid{
         grid = new Sprite[size][size];
         for (int i = 0; i < grid.length; i++){
             for (int j = 0; j < grid[0].length; j++){
-                grid[i][j] = new Dot(i, j);
+                grid[i][j] = new Dot(i, j); //fills every part of the grid with dots
             }
         }
     }
@@ -27,55 +27,47 @@ public class Grid{
         grid[size - s.getY() - 1][s.getX()] = s;
     }
 
-    public void placeSprite(Sprite s, String direction) { //place sprite in a new spot based on direction
-    grid[size-1-s.getY()][s.getX()] = s;
-     int x = s.getX();
-    int y = s.getY();
+    public void placeSprite(Sprite s, String direction) { //place sprite in a new spot on the grid based on direction
+    grid[size - 1 - s.getY()][s.getX()] = s;
+    
+    int xCoord = s.getX(); //getting the x-coord of the sprite
+    int yCoord = s.getY(); //getting the y-coord of the sprite
+    
     if (direction.equals("w")){ //Places sprite one grid up
-        y--;
+        yCoord--;
     }
     if (direction.equals("a")){ //Places sprite one grid to the left
-        x++;
+        xCoord++;
     }
     if (direction.equals("s")){ //Places sprite one grid down
-        y++;
+        yCoord++;
     }
     if (direction.equals("d")){ //Places sprite one grid to the right
-       x--;
+       xCoord--;
     }
            
-    if(x >= 0 && x < size && y >= 0 && y < size) {
-        grid[size-1-y][x] = new Dot(x, y);
+    if(xCoord >= 0 && xCoord < size && yCoord >= 0 && yCoord < size) { //Preventing out of index error
+        grid[size - 1 - yCoord][xCoord] = new Dot(xCoord, yCoord); //Fills the previous grid plot with a dot
     }
-
-       /* if (direction.equals("w")){ //Places sprite one grid up
-            grid[s.getRow(size) + 1][s.getCol(size)] = s;
-        }
-        if (direction.equals("a")){ //Places sprite one grid to the left
-            grid[s.getRow(size)][s.getCol(size) - 1] = s;
-        }
-        if (direction.equals("s")){ //Places sprite one grid down
-            grid[s.getRow(size) - 1][s.getCol(size)] = s;
-        }
-        if (direction.equals("d")){ //Places sprite one grid to the right
-            grid[s.getRow(size)][s.getCol(size) + 1] = s;
-        } */
-    }
+}
 
 
-    public void display() { //print out the current grid to the screen 
-         for(Sprite[] row : grid) {
-            for(Sprite cell : row) {
-                if(cell instanceof Player) {
-                    System.out.print("😊");
-                } else if(cell instanceof Enemy) {
-                    System.out.print("🔥");
-} else if(cell instanceof Trophy) {
+    public void display(){ //print out the current grid to the screen
+         for(Sprite[] row : grid){ //Going through every part of the grid
+            for(Sprite cell : row){ //prints out each sprite for the Treasure Hunt game
+                if(cell instanceof Player) { //if cell is an instance of the Player class
+                    System.out.print("😎");
+                } 
+                else if(cell instanceof Enemy){ //if cell is an instance of the Enemy class
+                    System.out.print("👿");
+}               else if(cell instanceof Trophy){ //if cell is an instance of the Trophy class
                     System.out.print("🏆");
-                } else if(cell instanceof Treasure) {
-                    System.out.print("💎");
-                } else {
-                    System.out.print("⬜");
+                } 
+                else if(cell instanceof Treasure){ //if cell is an instance of the Treasure class
+                    System.out.print("💰");
+                } 
+                else {
+                    System.out.print("⬜"); //prints out a dot when it isn't the above instances
                 }
             }
             System.out.println();

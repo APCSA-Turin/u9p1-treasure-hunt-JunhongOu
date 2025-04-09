@@ -6,7 +6,7 @@ public class Dot extends Sprite{
     
     public Dot(int x, int y){ //initalizing the Dot constructor
        super(x, y);
-       dot = "☐";
+       dot = "⬜";
     }
 
     @Override
