@@ -28,8 +28,10 @@ public class Player extends Sprite {
         return "Player:" + super.getCoords();
     }
 
+    public boolean winOrLose(){
+        return win;
+    }
 
-  
     //move method should override parent class, sprite
     
     @Override
@@ -53,6 +55,9 @@ public class Player extends Sprite {
 
     if (obj instanceof Enemy){ //If the object is enemy, lives deducted and check if lives = 0 to end the game with a loss
             numLives--;
+            if (numLives == 0){
+                win = false;
+            }
     }
         
     else if (obj instanceof Treasure && !(obj instanceof Trophy)){ //If the object is treasure, treasureCount increases per encounter
